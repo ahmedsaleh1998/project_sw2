@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LibraryDatabase1ModelStoreContainer" CdmEntityContainer="LibraryDatabase1Entities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="LibraryDatabase1Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Authors">
+      <EntityTypeMapping TypeName="LibraryDatabase1Model.Author">
+        <MappingFragment StoreEntitySet="Author">
+          <ScalarProperty Name="Author_Id" ColumnName="Author Id" />
+          <ScalarProperty Name="Author_Name" ColumnName="Author Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Books">
+      <EntityTypeMapping TypeName="LibraryDatabase1Model.Book">
+        <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="Book_Id" ColumnName="Book Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Descripion" ColumnName="Descripion" />
+          <ScalarProperty Name="DataOfPublish" ColumnName="DataOfPublish" />
+          <ScalarProperty Name="Author_Id" ColumnName="Author Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category Id" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="LibraryDatabase1Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category_Id" ColumnName="Category Id" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="LibraryDatabase1Model.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="Client_Id" ColumnName="Client Id" />
+          <ScalarProperty Name="Client_Name" ColumnName="Client Name" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="National_Id" ColumnName="National Id" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Client_Book" TypeName="LibraryDatabase1Model.Client_Book" StoreEntitySet="Client_Book">
+      <EndProperty Name="Client">
+        <ScalarProperty Name="Client_Id" ColumnName="Client Id" />
+      </EndProperty>
+      <EndProperty Name="Book">
+        <ScalarProperty Name="Book_Id" ColumnName="Book Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

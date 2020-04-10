@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryDatabase1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Email" />
+    </Key>
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Author">
+    <Key>
+      <PropertyRef Name="Author Id" />
+    </Key>
+    <Property Name="Author Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Author Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Book">
+    <Key>
+      <PropertyRef Name="Book Id" />
+    </Key>
+    <Property Name="Book Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Descripion" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="DataOfPublish" Type="date" Nullable="false" />
+    <Property Name="Author Id" Type="int" Nullable="false" />
+    <Property Name="Category Id" Type="int" Nullable="false" />
+    <Property Name="Image" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Category Id" />
+    </Key>
+    <Property Name="Category Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="Client Id" />
+    </Key>
+    <Property Name="Client Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Client Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="National Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Client_Book">
+    <Key>
+      <PropertyRef Name="Client Id" />
+      <PropertyRef Name="Book Id" />
+    </Key>
+    <Property Name="Client Id" Type="int" Nullable="false" />
+    <Property Name="Book Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Book_ToTable">
+    <End Role="Author" Type="Self.Author" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="Author Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Author Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Book_ToTable_1">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Book" Type="Self.Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category Id" />
+      </Principal>
+      <Dependent Role="Book">
+        <PropertyRef Name="Category Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Book_ToTable">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="Client_Book" Type="Self.Client_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="Client Id" />
+      </Principal>
+      <Dependent Role="Client_Book">
+        <PropertyRef Name="Client Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Client_Book_ToTable_1">
+    <End Role="Book" Type="Self.Book" Multiplicity="1" />
+    <End Role="Client_Book" Type="Self.Client_Book" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Book">
+        <PropertyRef Name="Book Id" />
+      </Principal>
+      <Dependent Role="Client_Book">
+        <PropertyRef Name="Book Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryDatabase1ModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Client_Book" EntityType="Self.Client_Book" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Book_ToTable" Association="Self.FK_Book_ToTable">
+      <End Role="Author" EntitySet="Author" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Book_ToTable_1" Association="Self.FK_Book_ToTable_1">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Book" EntitySet="Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Book_ToTable" Association="Self.FK_Client_Book_ToTable">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Client_Book" EntitySet="Client_Book" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Client_Book_ToTable_1" Association="Self.FK_Client_Book_ToTable_1">
+      <End Role="Book" EntitySet="Book" />
+      <End Role="Client_Book" EntitySet="Client_Book" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
