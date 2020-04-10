@@ -19,11 +19,7 @@ namespace library_management.Controllers
 
         }
 
-        // GET: author/Details/5
-        public ActionResult Details_author(int id)
-        {
-            return View();
-        }
+       
 
         // GET: author/Create
         public ActionResult Create_author()
@@ -35,11 +31,15 @@ namespace library_management.Controllers
         [HttpPost]
         public ActionResult Create_author(Author author)
         {
+            Author au = new db.Authors.where(a => a.author_name == id);
+
             try
             {
                 if (ModelState.IsValid)
 
+
                 {
+                   
                     db.Authors.Add(author);
                     db.SaveChanges();
 
