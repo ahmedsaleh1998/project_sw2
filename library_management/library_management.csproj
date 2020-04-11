@@ -236,6 +236,8 @@
     <Content Include="Views\author\Delete_author.cshtml" />
     <Content Include="Views\Category\Create_category.cshtml" />
     <Content Include="Views\Category\Index_category.cshtml" />
+    <Content Include="Views\Category\Edit_category.cshtml" />
+    <Content Include="Views\Category\Delete_category.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

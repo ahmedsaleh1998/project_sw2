@@ -38,5 +38,57 @@ namespace library_management.Controllers
 
             return View(category);
         }
+
+        public ActionResult Edit_category(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Category category = db.Categories.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            return View(category);
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit_category(Category category)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(category).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index_category");
+            }
+            return View(category);
+        }
+
+        public ActionResult Delete_category(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Category category = db.Categories.Find(id);
+            if (category == null)
+            {
+                return HttpNotFound();
+            }
+            return View(category);
+        }
+
+
+        [HttpPost, ActionName("Delete_category")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Category category = db.Categories.Find(id);
+            db.Categories.Remove(category);
+            db.SaveChanges();
+            return RedirectToAction("Index_category");
+        }
+
     }
 }
