@@ -31,8 +31,7 @@ namespace library_management.Controllers
         [HttpPost]
         public ActionResult Create_author(Author author)
         {
-            Author au = new db.Authors.where(a => a.author_name == id);
-
+     
             try
             {
                 if (ModelState.IsValid)

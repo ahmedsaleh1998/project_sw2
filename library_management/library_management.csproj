@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\authorController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,11 +230,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Admin\AdminHomePage.cshtml" />
-    <Content Include="Views\author\Details_author.cshtml" />
     <Content Include="Views\author\Index_author.cshtml" />
     <Content Include="Views\author\Create_author.cshtml" />
     <Content Include="Views\author\Edit_author.cshtml" />
     <Content Include="Views\author\Delete_author.cshtml" />
+    <Content Include="Views\Category\Create_category.cshtml" />
+    <Content Include="Views\Category\Index_category.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
