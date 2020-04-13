@@ -161,6 +161,21 @@ namespace library_management.Controllers
             return RedirectToAction("Index_Book");
         }
 
+        /////////////////////////////////// View Book by Id /////////////////////////
+        public ActionResult Details_Book(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
+
 
     }
 }

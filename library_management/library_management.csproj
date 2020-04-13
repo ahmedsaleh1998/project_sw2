@@ -341,6 +341,7 @@
     <Content Include="Views\Book\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Book\Edit_Book.cshtml" />
     <Content Include="Views\Book\Delete_Book.cshtml" />
+    <Content Include="Views\Book\Details_Book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
