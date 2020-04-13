@@ -17,7 +17,7 @@ namespace library_management.Model
         public int Author_Id { get; set; }
 
         [Required(ErrorMessage = "*Required")]
-        [RegularExpression(".{10,50}")]
+        [RegularExpression(".{3,50}")]
         public string Author_Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

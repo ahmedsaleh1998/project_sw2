@@ -1,10 +1,10 @@
-
 namespace library_management.Model
 {
     using lib_manage_project;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class Book
     {
@@ -18,7 +18,7 @@ namespace library_management.Model
 
 
         [Required(ErrorMessage = "*Required")]
-        [RegularExpression(".{10,50}")]
+        [RegularExpression(".{3,50}")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "*Required")]
@@ -26,14 +26,12 @@ namespace library_management.Model
         public string Descripion { get; set; }
 
         [Required(ErrorMessage = "*Required")]
-        [DataType(DataType.Date)]
         [NotInFuture]
         public System.DateTime DataOfPublish { get; set; }
         public int Author_Id { get; set; }
         public int Category_Id { get; set; }
 
-        [Required(ErrorMessage = "*Required")]
-        [RegularExpression(".{4,100}")]
+        public HttpPostedFileBase ImageFile { get; set; }
         public string Image { get; set; }
     
         public virtual Author Author { get; set; }

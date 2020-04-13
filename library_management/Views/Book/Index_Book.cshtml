@@ -1,0 +1,69 @@
+﻿@model IEnumerable<library_management.Model.Book>
+
+@{
+    ViewBag.Title = "Index_Book";
+}
+
+    <h2>Index Book</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create_Book")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOfPublish)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author.Author_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Category_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clients)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Url.Content(item.Image)" width="50" height="50" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataOfPublish)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Author.Author_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Category_Name)
+        </td>
+        <td>
+            @Html.ListBox("Client_Id", new SelectList(item.Clients, "Client_Id", "Client_Name"))
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit_Book", new { id=item.Book_Id }) |
+            @Html.ActionLink("Details", "Details_Book", new { id=item.Book_Id }) |
+            @Html.ActionLink("Delete", "Delete_Book", new { id=item.Book_Id })
+        </td>
+    </tr>
+}
+
+</table>
