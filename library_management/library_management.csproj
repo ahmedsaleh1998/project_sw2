@@ -339,6 +339,7 @@
     <Content Include="Views\Book\Index_Book.cshtml" />
     <Content Include="Views\Book\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Book\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Book\Edit_Book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
