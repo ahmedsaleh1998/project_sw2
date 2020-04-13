@@ -131,7 +131,35 @@ namespace library_management.Controllers
             ViewBag.Category_Id = new SelectList(db.Categories, "Category_Id", "Category_Name", book.Category_Id);
             return View(book);
         }
+        /////////////////////////////////// Delete Book (Get Method) /////////////////////////
+        public ActionResult Delete_Book(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
 
+        /////////////////////////////////// Delete Book (Post Method) /////////////////////////
+        [HttpPost, ActionName("Delete_Book")]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Book book = db.Books.Find(id);
+            String currentImg = Request.MapPath(book.Image);
+            db.Books.Remove(book);
+            db.SaveChanges();
+            if (System.IO.File.Exists(currentImg))
+            {
+                System.IO.File.Delete(currentImg);
+            }
+            return RedirectToAction("Index_Book");
+        }
 
 
     }
