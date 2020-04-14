@@ -1,10 +1,11 @@
 ﻿@model IEnumerable<library_management.Model.Client>
+    
 
 @{
     ViewBag.Title = "Index_client";
 }
 
-<h2>Index_client</h2>
+<h2>clients list</h2>
 
 <table class="table">
     <tr>
@@ -58,7 +59,7 @@
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit_client", new { id = item.Client_Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Client_Id }) |
+                @Html.ActionLink("Details", "Details_client", new { id = item.Client_Id }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.Client_Id })
             </td>
         </tr>

@@ -241,7 +241,6 @@ C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\bin\System.Web.We
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\bin\Newtonsoft.Json.xml
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\bin\Antlr3.Runtime.pdb
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\obj\Debug\library_management.csprojAssemblyReference.cache
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\obj\Debug\library_management.csproj.CoreCompileInputs.cache
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\obj\Debug\library_management.csproj.CopyComplete
 C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\obj\Debug\library_management.dll
@@ -494,3 +493,4 @@ E:\cmder\my_project\project_sw2\project_sw2\library_management\obj\Debug\library
 E:\cmder\my_project\project_sw2\project_sw2\library_management\obj\Debug\library_management.csproj.CopyComplete
 E:\cmder\my_project\project_sw2\project_sw2\library_management\obj\Debug\library_management.dll
 E:\cmder\my_project\project_sw2\project_sw2\library_management\obj\Debug\library_management.pdb
+C:\Users\ahmed\Documents\GitHub\project_sw2\library_management\obj\Debug\library_management.csprojAssemblyReference.cache

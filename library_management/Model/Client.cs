@@ -14,9 +14,10 @@ namespace library_management.Model
         }
     
         public int Client_Id { get; set; }
-
+        [Display (Name ="Client UserName")]
         [Required(ErrorMessage = "*Required")]
         [RegularExpression(".{1,50}")]
+        
         public string Client_Name { get; set; }
 
         [Required(ErrorMessage = "*Required")]
@@ -35,6 +36,7 @@ namespace library_management.Model
 
         [Required(ErrorMessage = "*Required")]
         [RegularExpression("[0-9]{14}")]
+        [Display(Name = "National ID")]
         public string National_Id { get; set; }
 
         [Required(ErrorMessage = "*Required")]

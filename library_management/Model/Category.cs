@@ -15,7 +15,7 @@ namespace library_management.Model
         }
     
         public int Category_Id { get; set; }
-
+        [Display(Name = "Category Name")]
         [Required(ErrorMessage = "*Required")]
         [RegularExpression(".{3,50}")]
         public string Category_Name { get; set; }

@@ -45,6 +45,20 @@ namespace library_management.Controllers
             }
             return View(client);
         }
+        public ActionResult Details_client(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Client client = db.Clients.Find(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(client);
+        }
 
     }
 }
