@@ -21,7 +21,6 @@ namespace library_management.Model
 
         [Required(ErrorMessage = "*Required")]
         [RegularExpression(".{6,20}")]
-        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "*Required")]
@@ -35,11 +34,10 @@ namespace library_management.Model
         public string Email { get; set; }
 
         [Required(ErrorMessage = "*Required")]
-        [RegularExpression("[0-9]{10,50}")]
+        [RegularExpression("[0-9]{14}")]
         public string National_Id { get; set; }
 
         [Required(ErrorMessage = "*Required")]
-        [DataType(DataType.Date)]
         [NotInFuture]
         public System.DateTime DateOfBirth { get; set; }
     

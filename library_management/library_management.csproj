@@ -132,6 +132,7 @@
     <Compile Include="Controllers\authorController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -342,6 +343,10 @@
     <Content Include="Views\Book\Edit_Book.cshtml" />
     <Content Include="Views\Book\Delete_Book.cshtml" />
     <Content Include="Views\Book\Details_Book.cshtml" />
+    <Content Include="Views\Client\Edit_client.cshtml" />
+    <Content Include="Views\Client\Index_client.cshtml" />
+    <Content Include="Views\Client\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Client\EditorTemplates\DateTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
