@@ -1,0 +1,5 @@
+﻿@model DateTime?
+
+@Html.TextBox("",Model.HasValue ? @Model.Value.ToString("dd-MM-yyyy") : "",
+    new  {data_provide = "datepicker",data_date_format="dd-M-yyyy",data_date_autoclose="true" })
+
