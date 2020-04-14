@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\library_management"
+    "\\library_management",
+    "\\library_management\\Controllers",
+    "\\library_management\\Views",
+    "\\library_management\\Views\\author"
   ],
-  "SelectedNode": "\\library_management\\library_management.sln",
+  "SelectedNode": "\\library_management\\Controllers\\authorController.cs",
   "PreviewInSolutionExplorer": false
 }
