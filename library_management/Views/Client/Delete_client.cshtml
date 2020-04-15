@@ -59,6 +59,22 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+        <dd>
+            <table class="table table-bordered table-striped">
+                @foreach (var item in Model.Books)
+                {
+                    <tr>
+                        <td>
+                            @item.Title
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
@@ -66,7 +82,7 @@
 
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index_client")
         </div>
     }
 </div>

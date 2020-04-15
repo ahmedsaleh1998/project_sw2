@@ -150,7 +150,7 @@ namespace library_management.Controllers
         [HttpPost, ActionName("Delete_Book")]
         public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
+            Book book = db.Books.Include(i=>i.Clients).First(j=>j.Book_Id == id);
             String currentImg = Request.MapPath(book.Image);
             db.Books.Remove(book);
             db.SaveChanges();

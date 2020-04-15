@@ -58,30 +58,30 @@
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Books)
+        </dt>
+        <dd>
+            <table class="table table-bordered table-striped">
+                @foreach (var item in Model.Books)
+                {
+                    <tr>
+                        <td>
+                            @item.Title
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
     </dl>
 
-    <table class="table table-bordered table-striped">
-        @foreach (var item in Model.Books)
-        {
-            <tr>
-                <td>
-                    @item.Title
-                </td>
-                <td>
-                    @item.Descripion
-                </td>
-                <td>
-                    @item.ImageFile
-                </td>
-            </tr>
-        }
-    </table>
+    
 
 
 
 
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Client_Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit_client", new { id = Model.Client_Id }) |
+    @Html.ActionLink("Back to List", "Index_client")
 </p>

@@ -71,7 +71,7 @@ namespace library_management.Controllers
         {
             try
             {
-                Client client = db.Clients.Single(a => a.Client_Id == id);
+                Client client = db.Clients.Include(i => i.Books).First(j => j.Client_Id == id);
                 db.Clients.Remove(client);
                 db.SaveChanges();
                 // TODO: Add delete logic here
