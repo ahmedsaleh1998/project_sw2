@@ -15,7 +15,7 @@ namespace library_management.Model
         }
     
         public int Author_Id { get; set; }
-        [Display(Name = "Author Name")]
+        [Display(Name = "Author  Name")]
         [Required(ErrorMessage = "*Required")]
         [RegularExpression(".{3,50}")]
         public string Author_Name { get; set; }
