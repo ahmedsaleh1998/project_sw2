@@ -348,6 +348,7 @@
     <Content Include="Views\Client\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Views\Client\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Client\Details_client.cshtml" />
+    <Content Include="Views\Client\Delete_client.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

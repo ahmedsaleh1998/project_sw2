@@ -59,19 +59,29 @@ namespace library_management.Controllers
 
             return View(client);
         }
-        public ActionResult Delete_client(int? id)
+        public ActionResult Delete_client(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Client client = db.Clients.Find(id);
-            if (client == null)
-            {
-                return HttpNotFound();
-            }
+            Client client = db.Clients.Single(a => a.Client_Id == id);
             return View(client);
         }
 
+        // POST: author/Delete/5
+        [HttpPost]
+        public ActionResult Delete_client(int id, FormCollection collection)
+        {
+            try
+            {
+                Client client = db.Clients.Single(a => a.Client_Id == id);
+                db.Clients.Remove(client);
+                db.SaveChanges();
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index_client");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
