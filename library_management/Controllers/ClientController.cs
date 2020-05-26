@@ -18,7 +18,6 @@ namespace library_management.Controllers
         {
             return View(db.Clients.ToList());
         }
-
         /////////////////////////////////// Edit Clients (Get Method) /////////////////////////
         public ActionResult Edit_client(int? id)
         {
@@ -83,5 +82,77 @@ namespace library_management.Controllers
                 return View();
             }
         }
+
+
+
+        /// ///////////////////////sign up/////////////////////
+
+
+        // GET: Clients2/Create
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+
+        // POST: Clients2/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignUp([Bind(Include = "Client_Id,Client_Name,Password,Mobile,Email,National_Id,DateOfBirth")] Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Clients.Add(client);
+                db.SaveChanges();
+                return RedirectToAction("login");
+            }
+
+            return View(client);
+        }
+
+
+
+
+        /// ////////////////////////////////login //////////////////////
+
+        public ActionResult login()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult login(Client avm)
+        {
+            if (avm.Email == "am304844@gmail.com" && avm.Password == "123456789")
+                return RedirectToAction("AdminHomePage", "Admin");
+            Client ad = db.Clients.Where(x => x.Email == avm.Email && x.Password == avm.Password).SingleOrDefault();
+            if (ad != null)
+            {
+
+                Session["u_id"] = ad.Client_Id.ToString();
+                return RedirectToAction("mainpage", "Client");
+
+
+            }
+            else
+            {
+                ViewBag.error = "Invalid username or password";
+
+            }
+
+            return View();
+        }
+
+
+        public ActionResult mainpage()
+        {
+
+
+            return View();
+        }
+
+
     }
 }

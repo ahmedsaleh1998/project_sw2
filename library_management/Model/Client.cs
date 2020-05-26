@@ -14,10 +14,9 @@ namespace library_management.Model
         }
     
         public int Client_Id { get; set; }
-        [Display (Name ="Client UserName")]
+        [Display (Name ="UserName")]
         [Required(ErrorMessage = "*Required")]
         [RegularExpression(".{1,50}")]
-        
         public string Client_Name { get; set; }
 
         [Required(ErrorMessage = "*Required")]
@@ -41,6 +40,7 @@ namespace library_management.Model
 
         [Required(ErrorMessage = "*Required")]
         [NotInFuture]
+        [Display(Name = "Birth date")]
         public System.DateTime DateOfBirth { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

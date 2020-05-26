@@ -1,0 +1,26 @@
+﻿@using library_management.Model
+@{
+    ViewBag.Title = "mainpage";
+
+}
+@{
+    Layout = null;
+}
+<h2>mainpage</h2>
+
+<div>
+    <a href="@Url.Action("all_books","Cleint")">
+        <img class="img-circle" src="~/img/92210496_533463050696333_145375060897562624_n.jpg" height="250" width="250" />
+    </a>
+    &emsp;
+    <a href="@Url.Action("my_books","Client")">
+        <img class="img-circle" src="~/Content/unnamed.png" height="250" width="250" />
+    </a>
+    &emsp;
+    <a href="@Url.Action("myinfo","Client")">
+
+        <img class="img-circle" src="~/Content/download (1).jpg" height="250" width="250" />
+    </a>
+
+
+</div>

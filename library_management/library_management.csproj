@@ -175,6 +175,7 @@
     <Content Include="App_Data\LibraryDatabase1_log.ldf">
       <DependentUpon>LibraryDatabase1.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\17e002637e940f16af49438d16b96adb.png" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-datepicker.min.css" />
     <Content Include="Content\bootstrap-datepicker.standalone.css" />
@@ -187,6 +188,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Colorful-Plait-Background.jpg" />
+    <Content Include="Content\download %281%29.jpg" />
+    <Content Include="Content\download.jpg" />
+    <Content Include="Content\images.jpg" />
+    <Content Include="Content\screen-2.jpg" />
+    <Content Include="Content\Style1.css" />
+    <Content Include="Content\unnamed.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -349,6 +357,14 @@
     <Content Include="Views\Client\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Client\Details_client.cshtml" />
     <Content Include="Views\Client\Delete_client.cshtml" />
+    <Content Include="Views\Client\login.cshtml" />
+    <Content Include="Views\Client\SignUp.cshtml" />
+    <Content Include="Views\Clients2\Create.cshtml" />
+    <Content Include="Views\Clients2\Delete.cshtml" />
+    <Content Include="Views\Clients2\Details.cshtml" />
+    <Content Include="Views\Clients2\Edit.cshtml" />
+    <Content Include="Views\Clients2\Index.cshtml" />
+    <Content Include="Views\Client\mainpage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />
