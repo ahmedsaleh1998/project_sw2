@@ -365,6 +365,8 @@
     <Content Include="Views\Clients2\Edit.cshtml" />
     <Content Include="Views\Clients2\Index.cshtml" />
     <Content Include="Views\Client\mainpage.cshtml" />
+    <Content Include="Views\Client\all_books.cshtml" />
+    <Content Include="Views\Shared\clientlayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

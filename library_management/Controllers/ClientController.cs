@@ -152,7 +152,17 @@ namespace library_management.Controllers
 
             return View();
         }
-
+        public ActionResult all_books()
+        {
+            var book = db.Books.Include(p => p.Category);
+            return View(book.ToList());
+        }
+        [HttpPost]
+        public ActionResult all_books(string searchtext)
+        {
+            var pro = db.Books.Include(p => p.Category).Where(p => p.Category.Category_Name.Contains(searchtext) || searchtext == null).ToList();
+            return View(pro);
+        }
 
     }
 }
