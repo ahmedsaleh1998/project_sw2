@@ -1,4 +1,4 @@
-﻿@using library_management.Model
+﻿@model library_management.Model.Client
 @{
     ViewBag.Title = "mainpage";
 
@@ -17,7 +17,7 @@
         <img class="img-circle" src="~/Content/unnamed.png" height="250" width="250" />
     </a>
     &emsp;
-    <a href="@Url.Action("myinfo","Client")">
+    <a href="@Url.Action("myinfo","Client"@*,new { id=Session["u_id"]}*@)">
 
         <img class="img-circle" src="~/Content/download (1).jpg" height="250" width="250" />
     </a>

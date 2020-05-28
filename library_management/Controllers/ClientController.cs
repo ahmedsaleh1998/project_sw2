@@ -118,7 +118,13 @@ namespace library_management.Controllers
 
         public ActionResult login()
         {
-            return View();
+            if (Session["u_id"] != null)
+            {
+                return RedirectToAction("mainpage", "Client", new { id = Session["u_id"] });
+            }
+            else
+               return View();
+            
         }
 
 
@@ -131,8 +137,8 @@ namespace library_management.Controllers
             if (ad != null)
             {
 
-                Session["u_id"] = ad.Client_Id.ToString();
-                return RedirectToAction("mainpage", "Client");
+                Session["u_id"] = ad.Client_Id;
+                return RedirectToAction("mainpage", "Client",new { id=avm.Client_Id,name=avm.Client_Name});
 
 
             }
@@ -148,9 +154,12 @@ namespace library_management.Controllers
 
         public ActionResult mainpage()
         {
-
-
-            return View();
+            if (Session["u_id"]==null)
+            {
+                RedirectToAction("login", "Client");
+            }
+             return View(); 
+           
         }
         public ActionResult all_books()
         {
@@ -163,6 +172,70 @@ namespace library_management.Controllers
             var pro = db.Books.Include(p => p.Category).Where(p => p.Category.Category_Name.Contains(searchtext) || searchtext == null).ToList();
             return View(pro);
         }
+
+       
+        /// ///////////////////////////////my information ///////////////////
+        
+        public ActionResult myinfo()
+        {
+            return RedirectToAction("Details_client2", new { id = Session["u_id"] });
+        
+        }
+        ////////////////////////////////////details about client in client model/////////////////////
+        public ActionResult Details_client2(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Client client = db.Clients.Find(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(client);
+        }
+
+        ////////////////////////////////////edit  about client in client model/////////////////////
+        ///
+
+
+        public ActionResult Edit_client2(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Client client = db.Clients.Find(id);
+            if (client == null)
+            {
+                return HttpNotFound();
+            }
+            return View(client);
+        }
+        /////////////////////////////////// Edit Clients (Post Method) /////////////////////////
+        [HttpPost]
+        public ActionResult Edit_client2(Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(client).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index_client");
+            }
+            return View(client);
+        }
+
+        /////////////sign out ////////////////////
+        ///
+        public ActionResult signOut()
+        {
+            Session["u_id"] = null;
+            return RedirectToAction("login");
+        }
+
+
 
     }
 }
