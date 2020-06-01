@@ -1,0 +1,86 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/clientlayout.cshtml";
+}
+<h2>book details</h2>
+
+@model library_management.Model.Book
+
+
+
+
+<div>
+    <h4>Book</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataOfPublish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataOfPublish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Url.Content(Model.Image)" width="250" height="250" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author.Author_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author.Author_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Category.Category_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.Category_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clients)
+        </dt>
+        <dd>
+            <table class="table table-bordered table-striped">
+                @foreach (var item in Model.Clients)
+                {
+                    <tr>
+                        <td>
+                            @item.Client_Name
+                        </td>
+                    </tr>
+                }
+            </table>
+        </dd>
+
+    </dl>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "all_books")
+</p>

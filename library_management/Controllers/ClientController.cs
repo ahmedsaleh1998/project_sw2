@@ -226,7 +226,19 @@ namespace library_management.Controllers
             }
             return View(client);
         }
-
+        public ActionResult Details_Book_client(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            return View(book);
+        }
         /////////////sign out ////////////////////
         ///
         public ActionResult signOut()
