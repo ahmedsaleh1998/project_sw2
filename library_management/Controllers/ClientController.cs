@@ -246,6 +246,41 @@ namespace library_management.Controllers
             Session["u_id"] = null;
             return RedirectToAction("login");
         }
+        public ActionResult my_books(int id)
+        {
+
+            List<Item> session_add = new List<Item>();
+            var bb = db.Books.Find(id);
+            session_add.Add(new Item()
+            {
+                book = bb
+            });
+            Session["session_add"] = session_add;
+
+            return View();
+        }
+        /// Delete Book///
+        public ActionResult delete_book(int id)
+        {
+            List<Item> session_add = (List<Item>)Session["session_add"];
+            foreach (var item in session_add)
+            {
+                if (item.book.Book_Id == id)
+                {
+                    session_add.Remove(item);
+                    break;
+                }
+            }
+            Session["session_add"] = session_add;
+            return View();
+        }
+
+
+        public ActionResult add_books()
+        {
+            return Redirect("all_books");
+        }
+
 
 
 

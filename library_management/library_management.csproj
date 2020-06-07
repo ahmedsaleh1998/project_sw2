@@ -134,6 +134,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Item.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -370,6 +371,8 @@
     <Content Include="Views\Client\Details_client2.cshtml" />
     <Content Include="Views\Client\Edit_client2.cshtml" />
     <Content Include="Views\Client\Details_Book_client.cshtml" />
+    <Content Include="Views\Client\my_books.cshtml" />
+    <Content Include="Views\Client\delete_book.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

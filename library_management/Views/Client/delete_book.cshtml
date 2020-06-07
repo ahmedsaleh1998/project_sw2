@@ -1,0 +1,14 @@
+﻿@model library_management.Model.Book
+
+@{
+    ViewBag.Title = "delete_book";
+    Layout = "~/Views/Shared/clientlayout.cshtml";
+}
+
+<h2>My books</h2>
+<div class="form-actions no-color">
+    @using (Html.BeginForm("add_books", "Client", FormMethod.Post))
+    {
+        <input type="submit" value="Add Book" class="btn btn-success" @*onclick="location.href='@Url.Action("Create", "Carts", new { id = item.id })'"*@ />
+    }
+
