@@ -44,7 +44,7 @@
                     </div>
                 </a>
                 <div class="form-actions no-color">
-                    @using (Html.BeginForm("my_books", "Client", new {id=item.Book_Id }, FormMethod.Post))
+                    @using (Html.BeginForm("Add", "Client", new {id=item.Book_Id }, FormMethod.Post))
                     {
                         <input type="submit" value="add to mybooks" class="btn btn-warning" @*onclick="location.href='@Url.Action("Create", "Carts", new { id = item.id })'"*@ style="width:100%" />
                     }

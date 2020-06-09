@@ -373,6 +373,8 @@
     <Content Include="Views\Client\Details_Book_client.cshtml" />
     <Content Include="Views\Client\my_books.cshtml" />
     <Content Include="Views\Client\delete_book.cshtml" />
+    <Content Include="Views\Client\MyBooks.cshtml" />
+    <Content Include="Views\Client\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Image\" />

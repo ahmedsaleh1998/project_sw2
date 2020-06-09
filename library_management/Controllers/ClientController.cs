@@ -246,7 +246,7 @@ namespace library_management.Controllers
             Session["u_id"] = null;
             return RedirectToAction("login");
         }
-        public ActionResult my_books(int id)
+        public ActionResult Add(int id)
         {
 
             List<Item> session_add = new List<Item>();
@@ -257,6 +257,10 @@ namespace library_management.Controllers
             });
             Session["session_add"] = session_add;
 
+            return View();
+        }
+        public ActionResult MyBooks()
+        {
             return View();
         }
         /// Delete Book///

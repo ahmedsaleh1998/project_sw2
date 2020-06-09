@@ -1,0 +1,47 @@
+﻿@model IEnumerable<library_management.Model.Book>
+@using library_management.Model
+@using library_management.Controllers
+@{
+    ViewBag.Title = "MyBooks";
+    Layout = "~/Views/Shared/clientlayout.cshtml";
+}
+
+<h2>MyBooks</h2>
+
+<div class="form-actions no-color">
+    @using (Html.BeginForm("add_books", "Client", FormMethod.Post))
+    {
+        <input type="submit" value="Add Book" class="btn btn-success" @*onclick="location.href='@Url.Action("Create", "Carts", new { id = item.id })'"*@ />
+    }
+
+</div>
+
+<table class="table">
+    @if (Session["session_add"] != null)
+    {
+        foreach (Item item in (List<Item>)Session["session_add"])
+        {
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="@Url.Content(item.book.Image)" alt="..." width="242" height="200">
+                    <div class="caption">
+                        <h3> @item.book.Title </h3>
+                        <p> @item.book.Descripion </p>
+
+                        <div class="form-actions no-color">
+                            @using (Html.BeginForm("delete_book", "Client", new { id = item.book.Book_Id }, FormMethod.Post))
+                            {
+                                <input type="submit" value="Delete" class="btn btn-danger" @*onclick="location.href='@Url.Action("Create", "Carts", new { id = item.id })'"*@ />
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+
+
+
+</table>
